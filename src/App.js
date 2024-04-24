@@ -1,23 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import { MoviePreview } from './MoviePreview'
+import { movies } from './movies'
+import React, {useState} from 'react'
+
+
+
 
 function App() {
+  const [currentMovieSelection, setCurrentMovieSelection] = useState(null)   
+    
+  console.log(currentMovieSelection)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {
+
+        currentMovieSelection ?
+
+          <div>
+
+          <p>{currentMovieSelection.title}</p>
+          <p>{currentMovieSelection.description}</p>
+          <p>{currentMovieSelection.director}</p>
+          <p>{currentMovieSelection.categories}</p>
+          <p>{currentMovieSelection.rating}</p>
+          <img src={currentMovieSelection.posterUrl} width={'500px'}/>
+
+        </div>
+
+
+             :
+
+             <p>Select a Movie</p>
+      }
+
+
+
+      {
+          movies.map((movie, index) => {
+            
+            
+
+            return (
+              <MoviePreview
+              
+                movie={movie}
+                setMovie={setCurrentMovieSelection}
+                key={index}
+
+                >
+
+                </MoviePreview>
+            )
+        
+        })
+      }
     </div>
   );
 }

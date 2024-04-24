@@ -1,0 +1,16 @@
+.movie-preview {
+    width: 250px;
+    background-color: aliceblue;
+    border-radius: 12px;
+    border: solid 2px cornflowerblue;
+    padding: 8px 4px;
+    margin: 4px;
+    text-align: center;
+}
+
+
+.movie-preview title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: cornflowerblue;
+}
